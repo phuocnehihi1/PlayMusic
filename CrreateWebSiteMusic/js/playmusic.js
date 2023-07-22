@@ -27,7 +27,8 @@ const waveIng = $('header .mater_play .wave');
 const btnNextSong = $('#master_nextplay');
 const btnBackSong =$('#master_back');
 const active3 =$('header .menu_side .menu-song .subItem.active3');
-const makeAllBackground = $('header .menu_side .menu-song .subItem')
+const makeAllBackground = $('header .menu_side .menu-song .subItem');
+const dowload_Music = $('#dowload-music');
 
 // Event Button bar Music
 const seek = $('#seek');
@@ -212,6 +213,9 @@ const app = {
      
         master_title.innerHTML = this.currentSong.name +`<div class="subtitle">${this.currentSong.singer}</div>`
         audio.src = this.currentSong.path;
+        dowload_Music.href= `${this.currentSong.path}`
+        dowload_Music.download = this.currentSong.name
+       
        
     },
 
@@ -377,7 +381,6 @@ const app = {
         // Envent Button Playlist
         playlist.onclick = function(e){
             const nodeSong = e.target.closest('.subItem:not(.active3)')
-            console.log(nodeSong)
             if(nodeSong){
                 const nodeSongId = Number(nodeSong.getAttribute("id"));
                 _this.caruentIndex = nodeSongId;
@@ -401,6 +404,7 @@ const app = {
                 
             }
         }
+ 
     },
    
    
