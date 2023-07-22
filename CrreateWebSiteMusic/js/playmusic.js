@@ -1,9 +1,10 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 // Button of pupolar song, left, right and pop_song
-const songleft =$('#po_song_left')
-const songright =$('#po_song_right')
-const pop_song = $('.pop_song')
+const songleft =$('#po_song_left');
+const songright =$('#po_song_right');
+const pop_song = $('.pop_song');
+const shuffle = $('.shuffle');
 // Button of popolar artists left, rigt and pop_artists
 const artistsleft =$('#pop_artists_left');
 const artistright =$('#pop_artists_right');
@@ -404,6 +405,60 @@ const app = {
                 
             }
         }
+
+        shuffle.onclick = function(e){
+            let a = shuffle.innerHTML;
+            switch (a) {
+                case "next":
+                   
+                    shuffle.classList.add("fa-repeat");
+                    shuffle.classList.remove("fa-music");
+                    shuffle.classList.remove("fa-shuffle");
+                    shuffle.innerHTML = "repeat";  
+                    break;
+                    case "repeat":
+                        shuffle.classList.remove("fa-repeat");
+                        shuffle.classList.remove("fa-music");
+                        shuffle.classList.add("fa-shuffle");
+                        shuffle.innerHTML = "random";
+                        break;
+                        case "random":
+                           
+                            shuffle.classList.remove("fa-repeat");
+                            shuffle.classList.add("fa-music");
+                            shuffle.classList.remove("fa-shuffle");
+                            shuffle.innerHTML ="next";
+                            break;                                               
+            
+                default:
+                    break;
+            }
+        }    
+        //     // switch(a){
+        //     //     case "next":
+        //     //         console.log('vo huu phuoc');
+        //     //         shuffle.classList.add("fa-repeat");
+        //     //         shuffle.classList.remove("fa-music");
+        //     //         shuffle.classList.remove("fa-shuffle");
+        //     //         shuffle.innerHTML = "repeat";
+        //     //         break;
+        //     //     case "repeat":
+        //     //         shuffle.classList.remove("fa-repeat");
+        //     //         shuffle.classList.remove("fa-music");
+        //     //         shuffle.classList.add("fa-shuffle");
+        //     //         shuffle.innerHTML = "random";
+        //     //         break;
+        //     //     case "random":
+        //     //         onsole.log('vo huu phuoc');
+        //     //         shuffle.classList.remove("fa-repeat");
+        //     //         shuffle.classList.add("fa-music");
+        //     //         shuffle.classList.remove("fa-shuffle");
+        //     //         shuffle.innerHTML ="next";
+        //     //         break;    
+
+        //     // }
+
+        // }
  
     },
    
