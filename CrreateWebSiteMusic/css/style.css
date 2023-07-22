@@ -109,9 +109,9 @@ header .menu_side .nav-sub h4 .fa-solid{
 header .menu_side .menu-song {
 
     width: 100%;
-    height: 680px;
+    height: 420px;
     
-    margin-top: 40px;
+    margin-top: 420px;
     overflow: auto;
 
 }
