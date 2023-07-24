@@ -253,15 +253,7 @@ const app = {
               </h5>`
         })
          pop_song.innerHTML = htmlsongs.join('');
-    //     //  Render Pupolar ARtists
-
-        const htlmartists = this.song.map(song =>{
-             return `<li>
-             <img src="${song.image}" alt="">
-          </li>`
-        })
-        const htmlplsyartist = $('header .menu_song .pupolar_artists .pop-artists');
-        pop_artists.innerHTML = htlmartists.join('');
+  
      },
 
     // Xử Lý Sự Kiện
