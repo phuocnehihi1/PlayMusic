@@ -434,31 +434,6 @@ const app = {
                     break;
             }
         }    
-        //     // switch(a){
-        //     //     case "next":
-        //     //         console.log('vo huu phuoc');
-        //     //         shuffle.classList.add("fa-repeat");
-        //     //         shuffle.classList.remove("fa-music");
-        //     //         shuffle.classList.remove("fa-shuffle");
-        //     //         shuffle.innerHTML = "repeat";
-        //     //         break;
-        //     //     case "repeat":
-        //     //         shuffle.classList.remove("fa-repeat");
-        //     //         shuffle.classList.remove("fa-music");
-        //     //         shuffle.classList.add("fa-shuffle");
-        //     //         shuffle.innerHTML = "random";
-        //     //         break;
-        //     //     case "random":
-        //     //         onsole.log('vo huu phuoc');
-        //     //         shuffle.classList.remove("fa-repeat");
-        //     //         shuffle.classList.add("fa-music");
-        //     //         shuffle.classList.remove("fa-shuffle");
-        //     //         shuffle.innerHTML ="next";
-        //     //         break;    
-
-        //     // }
-
-        // }
  
     },
    
