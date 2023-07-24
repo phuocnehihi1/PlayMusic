@@ -9,6 +9,7 @@ const shuffle = $('.shuffle');
 const artistsleft =$('#pop_artists_left');
 const artistright =$('#pop_artists_right');
 const pop_artists =$('.pop-artists');
+const icon_master = $('.mater_play .icon');
 // Button of PlayList
 
 
@@ -45,6 +46,7 @@ const app = {
     
     caruentIndex:0,
     isPlayTF:false,
+    isRanDom:false,
     song: [
         {   
            id:1, 
@@ -282,16 +284,27 @@ const app = {
         }
         // Button Back Play List
         btnBackSong.onclick = function(){
-            _this.BackSong();
+            let iConRandom = shuffle.getAttribute("data-index")
+            if(iConRandom === "2"){
+                 _this.RandomPlayList();
+            }
+            else{
+                _this.BackSong();
+            }
+           
             _this.Render();
-          
             audio.play();
         }
         // Button Next Play List
         btnNextSong.onclick = function(){
-              _this.NextSong();
+            let iConRandom = shuffle.getAttribute("data-index")
+            if(iConRandom === "2"){
+                 _this.RandomPlayList();
+            }
+            else{
+                _this.NextSong();
+            }
               _this.Render();
-            //   _this.ScrollView();
               audio.play();
 
         }
@@ -348,17 +361,17 @@ const app = {
                 // Thay Đổi kích thước with trong bar 2
                 bar2.style.width = `${seekBar}%`
                 dot.style.left = `${seekBar}%`
-                if(endSeconds == 0){
-                    _this.NextSong();
-                    _this.Render();
-                    audio.play(); 
-                }
             } 
+        }
+
+        // Set Onended
+        audio.onended = function(){
+            btnNextSong.click();
         }
         //  SET MUSIC
         seek.onchange = function(){
             audio.currentTime = seek.value * audio.duration /100;
-            console.log(audio.currentTime = seek.value * audio.duration /100)
+          
         }
         //  SET VOLUME
         vol_seek.addEventListener('change', function() {
@@ -414,13 +427,17 @@ const app = {
                     shuffle.classList.add("fa-repeat");
                     shuffle.classList.remove("fa-music");
                     shuffle.classList.remove("fa-shuffle");
-                    shuffle.innerHTML = "repeat";  
+                    shuffle.innerHTML = "repeat";
+                    shuffle.setAttribute("data-index",1);
+                    console.log(shuffle.getAttribute("data-index"))
                     break;
                     case "repeat":
                         shuffle.classList.remove("fa-repeat");
                         shuffle.classList.remove("fa-music");
                         shuffle.classList.add("fa-shuffle");
                         shuffle.innerHTML = "random";
+                        shuffle.setAttribute("data-index",2);
+                        console.log(shuffle.getAttribute("data-index"))
                         break;
                         case "random":
                            
@@ -428,6 +445,9 @@ const app = {
                             shuffle.classList.add("fa-music");
                             shuffle.classList.remove("fa-shuffle");
                             shuffle.innerHTML ="next";
+                            icon_master.setAttribute("data-index",3);
+                            shuffle.setAttribute("data-index",3);
+                            console.log(shuffle.getAttribute("data-index"))
                             break;                                               
             
                 default:
@@ -466,16 +486,39 @@ const app = {
         }
         this.loadCurrentSong();
 
+
     },
-        start:function(){
-            this.DefineProperties();           
-             // Hàm Render playList
-             this.Render();
+
+    // Function Random Play music 
+    RandomPlayList:function(){
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * this.song.length);
+        } while (newIndex === this.caruentIndex);
+        this.caruentIndex = newIndex;
+        this.loadCurrentSong();
+
+    },
+
+
+    // Button Even RanDom Song
+    RepeactPlayList:function(){
+        this.loadCurrentSong();
+
+    },
+    start:function(){
+        
+        this.DefineProperties();           
+    // Hàm Render playList
+        this.Render();
              // Hàm  xử lý sự kiện
-            this.handleEvent();
-            // Định nghĩa các thuộc tính cho object
-            this.loadCurrentSong();
-            this.makeAllBackground();         
-        }
+        this.handleEvent();
+    // Định nghĩa các thuộc tính cho object
+        this.loadCurrentSong();
+        this.makeAllBackground();   
+         this.RepeactPlayList();
+        
+        
+    }
 }
 app.start();
