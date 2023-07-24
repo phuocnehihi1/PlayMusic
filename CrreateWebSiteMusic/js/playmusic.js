@@ -366,7 +366,13 @@ const app = {
 
         // Set Onended
         audio.onended = function(){
-            btnNextSong.click();
+            let isRepeact = shuffle.getAttribute("data-index")
+            if(isRepeact == "1"){
+                audio.play();
+            }else{
+                btnNextSong.click();
+            }
+           
         }
         //  SET MUSIC
         seek.onchange = function(){
@@ -429,7 +435,8 @@ const app = {
                     shuffle.classList.remove("fa-shuffle");
                     shuffle.innerHTML = "repeat";
                     shuffle.setAttribute("data-index",1);
-                    console.log(shuffle.getAttribute("data-index"))
+                    
+
                     break;
                     case "repeat":
                         shuffle.classList.remove("fa-repeat");
@@ -437,7 +444,7 @@ const app = {
                         shuffle.classList.add("fa-shuffle");
                         shuffle.innerHTML = "random";
                         shuffle.setAttribute("data-index",2);
-                        console.log(shuffle.getAttribute("data-index"))
+                        
                         break;
                         case "random":
                            
@@ -447,7 +454,7 @@ const app = {
                             shuffle.innerHTML ="next";
                             icon_master.setAttribute("data-index",3);
                             shuffle.setAttribute("data-index",3);
-                            console.log(shuffle.getAttribute("data-index"))
+                           
                             break;                                               
             
                 default:
