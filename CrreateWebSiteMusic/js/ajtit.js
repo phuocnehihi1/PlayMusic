@@ -1,3 +1,4 @@
+
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 // Button of pupolar song, left, right and pop_song
@@ -10,13 +11,14 @@ const artistsleft =$('#pop_artists_left');
 const artistright =$('#pop_artists_right');
 const pop_artists =$('.pop-artists');
 const icon_master = $('.mater_play .icon');
-
 // Button of PlayList
+
+
 
 // const playlist = $('header .menu_side .menu-song')
 
 const playlist = $('.menu-song');
-const input = $('.input');
+
 
 
 //
@@ -41,180 +43,86 @@ let vol_seek =$('#vol-seek');
 const vol_bar =$('.vol-bar');
 const vol_dot = $('.vol-dot');
 
-
-// Even Button Search
-const btn_search = $('header .menu_song nav .search input');
-const search_result = $('header .menu_song nav .search .search-results');
-
-
-
-
-const app = {
-    
+const app ={
+    songaftit:[
+        {
+            id:1, 
+            name:'Load Control',
+            singer:'Alan walker',
+            path:'./music/audioartis/Alan-Walker-Sorana-Lost-Control.mp3',
+            image:'./img/img/imgartist/lost-control-alant-wallker.jpeg'
+        },
+        {
+            id:2, 
+            name:'The Nights',
+            singer:'Avicii',
+            path:'./music/audioartis/Avicii_-_The_Nights.mp3',
+            image:'./img/img/imgartist/the-nights-ceeNaija.jpeg'
+        },
+        {
+            id:3, 
+            name:'Tones And I Dance Monkey',
+            singer:'Dance Monkey',
+            path:'./music/audioartis/Dance-Monkey---Tones-And-I-320(PagalWorld).mp3',
+            image:'./img/img/imgartist/Tones-and-i-monkey.jpeg'
+        },
+        {
+            id:4, 
+            name:'Diamo Heart',
+            singer:'Alan walker',
+            path:'./music/audioartis/Diamond-Heart(PaglaSongs).mp3',
+            image:'./img/img/imgartist/Diamon-heart-alant-wallkes.jpeg'
+        },
+        {
+            id:5, 
+            name:' No Secret',
+            singer:'Dj Khaled',
+            path:'./music/audioartis/DJ_Khaled_-_No_Secret_Ft_Drake_CeeNaija.com_.mp3',
+            image:'./img/img/imgartist/Dj-Mara.jpeg'
+        },
+        {
+            id:6, 
+            name:'The Monter',
+            singer:'Eminem And Ft Rihanna',
+            path:'./music/audioartis/Eminem-Ft-Rihanna-The-Monster-Nghype.Com_.mp3',
+            image:'./img/img/imgartist/Eminem-TheMonster-Rihanna.jpeg'
+        },
+        {
+            id:7, 
+            name:'Before You Go',
+            singer:'Lewis',
+            path:'./music/audioartis/Lewis_Capaldi_-_Before_You_Go_CeeNaija.com_.mp3',
+            image:'./img/img/imgartist/beforeyougo-lewis-capaldi.jpeg'
+        },
+        {
+            id:8, 
+            name:'Let her go',
+            singer:'Passenger',
+            path:'./music/audioartis/Passenger_-_Let_Her_Go_Naijamusics.com.mp3',
+            image:'./img/img/imgartist/lethergo_passenger.jpeg'
+        },
+        {
+            id:9, 
+            name:'What are words',
+            singer:'Chris Madia',
+            path:'./music/audioartis/What-Are-Words-Chris-Medina-Chris-Medina-Chris-Medina.mp3',
+            image:'./img/img/imgartist/Chris-Medina -What-Are-Words.jpeg'
+        },
+        {
+            id:10, 
+            name:'White Wall',
+            singer:'Hollis',
+            path:'./music/audioartis/savfk-white-walls.mp3',
+            image:'./img/img/imgartist/while-wakks-hollis.jpeg'
+        },
+    ],
     caruentIndex:0,
     isPlayTF:false,
     isRanDom:false,
-    isInput:false,
-    songs: [
-        {   
-           id:1, 
-            name:'On My Wuay',
-            singer:'Alan walker',
-            path:'./music/audio/1.mp3',
-            image:'./img/img/1.jpg'
-        },
-        {   
-            id:2,
-            name:'Fade',
-            singer:'Alan walker',
-            path:'./music/audio/2.mp3',
-            image:'./img/img/2.jpg'
-        },
-        {   
-            id:3,
-            name:'Cartoon',
-            singer:'Daniel live',
-            path:'./music/audio/3.mp3',
-            image:'./img/img/3.jpg'
-        },
-        {   
-            id:4,
-            name:'Warrio Mortals',
-            singer:'Mortals',
-            path:'./music/audio/4.mp3',
-            image:'./img/img/4.jpg'
-        },
-        {   
-            id:5,
-            name:'Ertugrul Gazi',
-            singer:'Ertugrul',
-            path:'./music/audio/5.mp3',
-            image:'./img/img/5.jpg'
-        },
-        {   
-            id:6,
-            name:'Electronic Music',
-            singer:'Electtonic ',
-            path:'./music/audio/6.mp3',
-            image:'./img/img/6.jpg'
-        },
-        {   
-            id:7,
-            name:'Agar Tum Sath Ho',
-            singer:'Tamashaa',
-            path:'./music/audio/7.mp3',
-            image:'./img/img/7.jpg'
-        },
-        {   
-            id:8,
-            name:'Suna Hai',
-            singer:'NeHa kakker',
-            path:'./music/audio/8.mp3',
-            image:'./img/img/8.jpg'
-        },
-        {   
-            id:9,
-            name:'Diler',
-            singer:'Saytynameva Jayate',
-            path:'./music/audio/9.mp3',
-            image:'./img/img/9.jpg'
-        },
-        {   
-            id:10,
-            name:'Duniya',
-            singer:'Luka Chuppi',
-            path:'./music/audio/10.mp3',
-            image:'./img/img/10.jpg'
-        },
-        
-        // Nhạc Việt
-        {   
-            id:11, 
-            name:'Gánh Mẹ',
-            singer:'Quách Beem',
-            path:'./music/Ganh-Me-Luu-Minh-Tuan-Quach-Beem.mp3',
-            image:'./img/GanhMe-QuachTuanBeen.jpeg'
-        },
-        {
-            id:12,
-            name:'Hà Giang Ơi',
-            singer:'Quách Beem',
-            path:'./music/Ha-Giang-Oi-Quach-Beem.mp3',
-            image:'./img/HaGianOi-QuachBeem.jpeg'
-        },
-      
-        {
-            id:13,
-            name:'Đi Về Đâu',
-            singer:'Tiên Tiên',
-            path:'./music/Di-Ve-Dau-BeeBB-x-CM1X-Remix-CM1X-Tien-Tien-BeeBB.mp3',
-            image:'./img/divedau-tientien.jpeg'
-        },
-        {
-            id:14,
-            name:'LalaLove',
-            singer:'BMG',
-            path:'./music/LaLaLove-BGM-9835734.mp3',
-            image:'./img/LalaLove-BMG.jpeg'
-        },
-        {
-            id:15,
-            name:'Nam Quốc Sơn Hà',
-            singer:'Phương Mỹ Chi',
-            path:'./music/Nam-Quoc-Son-Ha-DTAP-ERIK-NinjaZ-Rtee-Phuong-My-Chi.mp3',
-            image:'./img/NamQuoc-PhuongMiChi.jpeg'
-        },
-        {
-            id:16,
-            name:'Rượu Mừng Hoá Người Dân',
-            singer:'T Long',
-            path:'./music/RuouMungHoaNguoiDung-TLong-9499024.mp3',
-            image:'./img/RuouMung-NguoiDung-TLong.jpeg'
-        },
-        {
-            id:17,
-            name:'Huyền Thoaị',
-            singer:'Phan Mạnh Quỳnh',
-            path:'./music/Huyen-Thoai-Phan-Manh-Quynh.mp3',
-            image:'./img/ThanThoai-PMQuynh.jpeg'
-        },
-        {
-            id:18,
-            name:'Ta Còn Đây',
-            singer:'Justatee & Rhymastic',
-            path:'./music/Ta-Con-Day-JustaTee-Rhymastic-SlimV.mp3',
-            image:'./img/TaConDay.jpeg'
-        },
-        {
-            id:19,
-            name:'Tát Nước Đầu Đình',
-            singer:'Binz & Lynklee',
-            path:'./music/Tat-Nuoc-Dau-Dinh-Lynk-Lee-Binz.mp3',
-            image:'./img/TatNuocDauDinh-Binz-Lynklee.jpeg'
-        },
-        {
-            id:20,
-            name:'Tình Anh Em',
-            singer:'Lâm Chấn huy',
-            path:'./music/Tinh-Anh-Em-Lam-Chan-Huy-Lam-Chan-Hai.mp3',
-            image:'./img/tinhanhem-lamchanhuy.jpeg'
-        },
-        {
-            id:21,
-            name:'Tuý Âm',
-            singer:'Xesi & Masew Nhật Nguyễn',
-            path:'./music/Tuy-Am-Xesi-Masew-Nhat-Nguyen.mp3',
-            image:'./img/divedau-tientien.jpeg'
-        },
-    
-    ],
-
-
-    // DefinePropweties: Get Play fist Play music
     DefineProperties:function(){
         Object.defineProperty(this,'currentSong',{
             get:function(){
-               return this.songs[this.caruentIndex];
+               return this.songaftit[this.caruentIndex];
 
             }
 
@@ -235,11 +143,13 @@ const app = {
 
     // Render Show 
     Render:function(){
+
+
         //  Render Play List
-        const htmls  = this.songs.map((song,index) =>{
-            return`<li class="subItem ${index === this.caruentIndex ?'active3':''} "id="${index}"}">
+        const htmls  = this.songaftit.map((song,index) =>{
+            return`<li class="subItem ${index === this.caruentIndex ?'active3':''} " id="${index}"}">
             <span>${song.id}</span>
-            <img src="${song.image}" alt="" >
+            <img src="${song.image}" alt="">
               <h5>${song.name}<br> 
                 <div class="sub-Item">${song.singer}</div>
             </h5>
@@ -250,10 +160,10 @@ const app = {
       
       playlist.innerHTML = htmls.join('');
     //     // Render Pupolar Song
-        const htmlsongs = this.songs.map((song,index )=>{
+        const htmlsongs = this.songaftit.map((song,index )=>{
             return `<li class="songItem ${index === this.caruentIndex? 'active':''} "id="${index}"}">
               <div class="img_play">
-                <img src="/CrreateWebSiteMusic/${song.image}" alt="">
+                <img src="${song.image}" alt="">
                 <i class="fa-solid fa-play"></i>
                 <i class="fa-solid fa-pause"></i>
               </div>
@@ -262,22 +172,6 @@ const app = {
               </h5>`
         })
          pop_song.innerHTML = htmlsongs.join('');
-
-        //  Render search result
-        const searchresult = this.songs.map((song,index)=>{
-            return `<a class="card ${index === this.caruentIndex}" href="#${index}"  id="${index}">
-            <img src="${song.image}" alt="" id="${index}">
-            <div class="s-content" id="${index}"  id="${index}">
-              ${song.name}
-              <div class="s-subitem"  id="${index}">
-                    ${song.singer}
-              </div>
-            </div>
-          </a>`
-        })
-        search_result.innerHTML = searchresult.join('');
-        const  searccard =$('.card');
-
   
      },
 
@@ -424,9 +318,9 @@ const app = {
                 _this.loadCurrentSong();
                 _this.Render();
                 audio.play();
-            }
-     
-        };
+            }   
+          
+        }
 
         // Button Event Popolar Song
         pop_song.onclick = function(e){
@@ -442,7 +336,6 @@ const app = {
             }
         }
 
-        // status music
         shuffle.onclick = function(e){
             let a = shuffle.innerHTML;
             switch (a) {
@@ -478,52 +371,10 @@ const app = {
                 default:
                     break;
             }
-        } 
-
-
-        // Envent Show Data;
-        input.onkeyup = function() {
-
-            let input_value = input.value.toUpperCase();
-            console.log(input_value);
-            let items = search_result.getElementsByTagName('a');
-        
-            for (let index = 0; index < items.length; index++) {
-                let element = items[index].querySelector('.s-content');
-                
-                if (element) {
-                    let text_value = element.textContent || element.innerText;
-                    if (text_value.toUpperCase().indexOf(input_value) > -1) {
-                        items[index].style.display = "flex"; // Fix the 'display' property spelling here
-                    } else {
-                        items[index].style.display = "none"; // Fix the 'display' property spelling here
-                    }
-
-                }
-                if(input_value.value == 0){
-
-                    search_result.style.display = "none"
-                }else{
-                    search_result.style.display = ""
-                }
-            
-               
-            }
-        
-    
-        };
-
-        search_result.onclick = function(e){
-           const search_node = e.target;
-           _this.caruentIndex = Number(search_node.getAttribute("id"));
-           _this.loadCurrentSong();
-           _this.Render();
-           audio.play();
-            
-        }
+        }    
+ 
     },
    
-
    
     ScrollView:function(){
         active3.scrollIntoView({
@@ -534,7 +385,7 @@ const app = {
     BackSong:function(){
         this.caruentIndex--
         if(this.caruentIndex < 0){
-            this.caruentIndex = this.songs.length -1;
+            this.caruentIndex = this.songaftit.length -1;
         }
         this.loadCurrentSong();
     },
@@ -548,7 +399,7 @@ const app = {
     // Event Next Song
     NextSong:function(){
         this.caruentIndex++
-        if(this.caruentIndex >= this.songs.length){
+        if(this.caruentIndex >= this.songaftit.length){
             this.caruentIndex = 0;
         }
         this.loadCurrentSong();
@@ -560,7 +411,7 @@ const app = {
     RandomPlayList:function(){
         let newIndex;
         do {
-            newIndex = Math.floor(Math.random() * this.songs.length);
+            newIndex = Math.floor(Math.random() * this.songaftit.length);
         } while (newIndex === this.caruentIndex);
         this.caruentIndex = newIndex;
         this.loadCurrentSong();
@@ -575,17 +426,15 @@ const app = {
     },
     start:function(){
         
-        this.DefineProperties();           
+    this.DefineProperties();           
     // Hàm Render playList
         this.Render();
              // Hàm  xử lý sự kiện
         this.handleEvent();
     // Định nghĩa các thuộc tính cho object
         this.loadCurrentSong();
-        this.makeAllBackground();   
-        
-    
-           
+        //this.makeAllBackground();   
     }
+
 }
 app.start();

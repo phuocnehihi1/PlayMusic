@@ -474,7 +474,7 @@ header .menu_song nav ul li span{
 }
 header .menu_song nav .search{
     width: 40%;
-    /* border: 1px solid #fff; */
+     /* border: 1px solid #fff; */
     position: relative;
     border-radius: 20px;
     padding: 1px 20px;
@@ -501,6 +501,65 @@ header .menu_song nav .search input {
     padding: 3px 0px 0px 10px;
 
 }
+header .menu_song nav .search .search-results{
+    top: 30px;
+    position: absolute;
+    /* border: 1px solid; */
+    margin-top: 10px;
+    width: 100%;
+    height: 200px;
+    left: 0;
+    border-radius: 10px;
+    overflow: auto;
+}
+header .menu_song nav .search .search-results::-webkit-scrollbar{
+    display: none;
+}
+header .menu_song nav .search .search-results.active{
+    display: block;
+}
+
+header .menu_song nav .search .search-results .card{
+    width: 100%;
+    min-width: 45px;
+    /* border: 1px solid #fff; */
+    display: flex;
+    align-content: center;
+    text-decoration: none;
+    background-color: rgb(184, 184, 184, .1);
+    margin-bottom: 10px;
+    display: none;
+
+}
+
+header .menu_song nav .search .search-results .card img{
+
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+
+}
+header .menu_song nav .search .search-results .card .s-content{
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid #fff; */
+    font-size: 13px;
+    color: #fff;
+    margin-left: 5px;
+    padding: 5px 5px;
+}
+
+
+header .menu_song nav .search .search-results .card .s-content .s-subitem{
+    font-size: 11px;
+    font-weight: 500px;
+    color: #a4a8a4a4;
+}
+
+
+
+
+/* Css User */
 header .menu_song nav .user{
     width: 30px;
     height: 30px;

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet"  href="./css/style.css">
+    <link rel ="stylesheet" href="./assest/fontawesome-free-6.4.0-web/css/all.css" >
+  <title>Play Music</title>
+  <style>
+    header .menu_song::before {
+    background:url(/CrreateWebSiteMusic/img/img/14.jpg);
+    
+
+}
+  </style>
+</head>
+
+<body>
+
+  <header id="container">
+
+    <div class="menu_side">
+        <h1>Play List </h1>
+        <div class="nav-sub">
+            <h4 class="active"><span></span><i class="fa-solid fa-music"></i>Playlist</h4>
+            <h4><span></span><i class="fa-solid fa-music"></i>Last Listening</h4>
+            <h4><span></span><i class="fa-solid fa-music"></i>Recommended</h4>
+        </div>
+
+
+        <!--List Play Music  -->
+        <div class="menu-song">
+
+
+            <li class="subItem">
+              <span>01</span>
+              <img src="./img/divedau-tientien.jpeg" alr="" >
+                <h5>On May Way<br> 
+                  <div class="sub-Item">Alan Walker</div>
+              </h5>
+              <i class="fa-solid fa-play playmusic" id="1"></i>
+            </li>
+        </div>
+        </div>
+    <div class="menu_song">
+      <!-- Search -->
+      <nav>
+        <ul>
+          <li>Discover<span></span> </li>
+          <li>LiBrary</li>
+          <li>Radio</li>
+        </ul>
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="search music">
+        </div>
+        <div class="user">
+          <img src="./img/img/1.jpg" alt="">
+        </div>
+      </nav>
+
+      <!-- Content Singer -->
+      <div class="content">
+        <h1>Arjit Singh</h1>
+        <p>You ware the shadow to my light did you feel us Another start you fade<br>Away afraid our aim is our aim is out of sight Wanna see us Alive</p>
+        <div class="buttons">
+          <button class="play">   PLAY</button>
+          <button class="follow">FOLLOW</button>
+        </div>
+      </div>
+
+      <!-- Pupolar Song -->
+      <div class="pupolar_song">
+        <div class="h4">
+          <h4> Pupolar song</h4>
+          <div class="btn-s">
+            <i class="fa-solid fa-arrow-left" id="po_song_left"></i>
+            <i class="fa-solid fa-arrow-right" id="po_song_right"></i>
+          </div>
+        </div>
+        <!-- Show pupolar Song -->
+        <div class="pop_song">
+         
+          <li class="songItem">
+            <div class="img_play">
+              <img src="./img/img/10.jpg" alt="">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <h5>On my WAY <br>
+              <div class="subtitle">Alan Walker</div>
+            </h5>
+          </li>
+         
+        </div>
+      </div>
+      <!-- Pupolar artists -->
+      <div class="pupolar_artists">
+        <div class="h4">
+          <h4>Pupolar Artists</h4>
+          <div class="btn-art">
+            <i class="fa-solid fa-arrow-left" id="pop_artists_left"></i>
+            <i class="fa-solid fa-arrow-right" id="pop_artists_right"></i>
+          </div>
+        </div>
+        <div class="pop-artists">
+            <li>
+               <img src="img/img/atif.jpg" alt="">
+            </li>
+            <li>
+              <img src="img/img/atif.jpg" alt="">
+            </li>
+            <li>
+              <img src="img/img/atif.jpg" alt="">
+           </li>
+           <li>
+             <img src="img/img/atif.jpg" alt="">
+           </li>
+           <li>
+            <img src="img/img/atif.jpg" alt="">
+         </li>
+         <li>
+           <img src="img/img/atif.jpg" alt="">
+         </li>
+         <li>
+          <img src="img/img/atif.jpg" alt="">
+       </li>
+       <li>
+         <img src="img/img/atif.jpg" alt="">
+       </li>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control -->
+    <div class="mater_play">
+      <div class="wave">
+        <div class="wave1"></div>
+        <div class="wave1"></div>
+        <div class="wave1"></div>
+      </div>
+      <img src="./img/poster_amnhac.avif" alt="" id="menu_play_poster">
+      <h5 id="titel">
+        Vanden marđex
+        <div class="subtitle">Bs</div>
+      </h5>
+      <div class="icon" data-index = "1">
+        <div class="i-music"><i class="fa-solid shuffle fa-music">next</i></div>
+        <div class="i-back"><i class="fa-solid fa-backward-step" id="master_back"></i></div>
+        <div class="i-play active"  id="master_play">
+          <i class="fa-solid fa-pause"></i>
+          <i class="fa-solid fa-play"></i></i>
+        </div>
+        <div class="i-end"><i class="fa-solid fa-forward-step" id="master_nextplay"></i></div>
+        <div class="i-dow">
+          <a id="dowload-music" download ="">
+            <i class="fa-solid fa-download" ></i></div>
+          </a>
+          
+      </div>
+      <span id="currentStart">0:00</span>
+      <div class="bar">
+        <input type="range" min="0" max="100"  id="seek">
+        <audio id="audio"  src=""></audio>
+        <div class="bar2" id="bar2"></div>
+        <div class="dot"></div>
+      </div>
+      <span id="currentEnd">0:30</span>
+      <div class="vol">
+        <i class="fa-solid fa-volume-high" id="vol-icon" ></i>
+        <input type="range" src="" id="vol-seek" value="" min="0" max="100">
+        <div class="vol-bar"></div>
+        <div class="vol-dot" # id=" vol-dot" value =""></div>
+      </div>
+
+    </div>
+  
+  
+  </header>
+  <script src="./js/ajtit.js"></script>
+</body>
+
+</html>
