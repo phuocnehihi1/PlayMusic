@@ -816,6 +816,17 @@ header .left_bx1 .content .l-card{
     justify-content: center;
     flex-direction: column;
 }
+header .left_bx1 .content .l-card .error{
+
+    display: none;
+    margin-top: 5px;
+    color: #ff0033;
+    font-size: 9px;
+    font-style: italic;
+}
+header .left_bx1 .content .l-card .error.active{
+    display: block;
+}
 header .left_bx1 .content .l-card label{
 
     font-size: 14px;
