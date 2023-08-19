@@ -95,7 +95,7 @@ function handleEvent() {
                                 if(valueNumbe(contact) && contact.length === 10){
                                 const data = {
                                     name: name,
-                                    mail: email,
+                                    email: email,
                                     password: password,
                                     contact: contact
                                 }

@@ -7,6 +7,8 @@ const urlApi = ' http://localhost:3000/user';
  const user_password = $('.user_password');
  const login =$('.btn-submit');
  const error_active = $('header .left_bx1 .content .l-card .error');
+ const user = $('header .menu_song nav .user');
+ console.log(user)
 
 // FuntionCheck Email
  function validateEmail(email) {
@@ -39,9 +41,13 @@ function handleEvent(){
             getAPI(function(result){
 
                 for(const user of result){
-                    if(user.email === mail && user.password === password){
-                        console.log(user.id);
+                    if(mail === user.email && password === user.password){
                         error_active.classList.remove('active');
+                        setTimeout(function(){
+                            sessionStorage.setItem('userId',user.id);
+                            window.location.href ="index.html";
+                        },1000);
+                        
                     }else{
                         error_active.classList.add('active');
                         error_active.innerHTML = "The email of the password is incorrect";

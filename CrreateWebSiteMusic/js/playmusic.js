@@ -46,15 +46,25 @@ const vol_dot = $('.vol-dot');
 const btn_search = $('header .menu_song nav .search input');
 const search_result = $('header .menu_song nav .search .search-results');
 
+//  Event Button User
+const btn_user = $('header .menu_song nav .user img');
+const btn_user_infor = $('header .menu_song nav .user .user-info');
 
+// Even Button Logout
+const btn_users = $$('header .menu_song nav .user .user-infod div');
 
+// Event request Từ Login.
+const urlUser = "http://localhost:3000/user";
+var userId = sessionStorage.getItem('userId');
+console.log(userId)
 
 const app = {
-    
+    isUser:false,
     caruentIndex:0,
     isPlayTF:false,
     isRanDom:false,
     isInput:false,
+
     songs: [
         {   
            id:1, 
@@ -483,9 +493,7 @@ const app = {
 
         // Envent Show Data;
         input.onkeyup = function() {
-
             let input_value = input.value.toUpperCase();
-            console.log(input_value);
             let items = search_result.getElementsByTagName('a');
         
             for (let index = 0; index < items.length; index++) {
@@ -521,8 +529,49 @@ const app = {
            audio.play();
             
         }
+
+        // Hendle User
+        btn_user.onclick = function(){
+            _this.isUser =!_this.isUser;
+            if(_this.isUser === true){
+                btn_user_infor.classList.add('active')
+            }else{
+                btn_user_infor.classList.remove('active');
+            }
+        }
+        btn_users.forEach(function(e){
+            e.onclick = function(){
+                console.log(e.target)
+            }
+        })
     },
-   
+   callApi:function(){
+    function  HandleEventAPI(callback){
+        const object = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+        }
+        fetch(urlUser)
+        .then(function(response){
+            console.log(response)
+            return response.json();
+        })
+        // .then(function(data){
+        //      data.id = userId;
+        //      return data;
+        // })
+        .then(callback)
+    }
+
+    HandleEventAPI(function(e){
+        console.log(e)
+    })
+
+
+   },
 
    
     ScrollView:function(){
@@ -554,6 +603,8 @@ const app = {
         this.loadCurrentSong();
 
 
+
+
     },
 
     // Function Random Play music 
@@ -583,8 +634,8 @@ const app = {
     // Định nghĩa các thuộc tính cho object
         this.loadCurrentSong();
         this.makeAllBackground();   
-        
-    
+    //  Định nghĩa Call API  
+        this.callApi();
            
     }
 }
