@@ -44,7 +44,7 @@ function handleEvent(){
                     if(mail === user.email && password === user.password){
                         error_active.classList.remove('active');
                         setTimeout(function(){
-                            sessionStorage.setItem('userId',user.id);
+                            sessionStorage.setItem('setUserId',user.id);
                             window.location.href ="index.html";
                         },1000);
                         

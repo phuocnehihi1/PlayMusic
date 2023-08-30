@@ -55,8 +55,10 @@ const btn_users = $$('header .menu_song nav .user .user-infod div');
 
 // Event request Từ Login.
 const urlUser = "http://localhost:3000/user";
-var userId = sessionStorage.getItem('userId');
-console.log(userId)
+var getuserId = sessionStorage.getItem('setUserId');
+const userforname =$('.user .infor h4');
+
+
 
 const app = {
     isUser:false,
@@ -285,8 +287,11 @@ const app = {
             </div>
           </a>`
         })
-        search_result.innerHTML = searchresult.join('');
-        const  searccard =$('.card');
+        search_result.innerHTML = searchresult
+        
+
+
+
 
   
      },
@@ -554,20 +559,19 @@ const app = {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
               },
         }
-        fetch(urlUser)
+        fetch(urlUser,object)
         .then(function(response){
-            console.log(response)
             return response.json();
         })
-        // .then(function(data){
-        //      data.id = userId;
-        //      return data;
-        // })
         .then(callback)
     }
 
-    HandleEventAPI(function(e){
-        console.log(e)
+    HandleEventAPI(function(result){
+       for(const use of result){
+        if(use.id === getuserId){
+            userforname.innerText = use.name
+            }
+       }
     })
 
 
